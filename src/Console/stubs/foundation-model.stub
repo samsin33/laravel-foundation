@@ -1,0 +1,9 @@
+<?php
+
+namespace {{ namespace }};
+
+use Samsin33\Foundation\Models\BaseModel;
+
+class {{ class }} extends BaseModel
+{
+}

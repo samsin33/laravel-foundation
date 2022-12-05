@@ -2,6 +2,7 @@
 
 namespace Samsin33\Foundation\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Samsin33\Foundation\Events\EventCreatedCallback;
 use Samsin33\Foundation\Events\EventCreatingCallback;
@@ -30,7 +31,7 @@ use Samsin33\Foundation\Traits\ValidationTrait;
 
 abstract class BaseModel extends Model
 {
-    use CacheTrait, DateTrait, EventCallbackTrait, GuzzleHttpTrait, MailerTrait, NotificationTrait, QueueTrait, RequestTypeTrait, UserSessionTrait, ValidationTrait;
+    use HasFactory, CacheTrait, DateTrait, EventCallbackTrait, GuzzleHttpTrait, MailerTrait, NotificationTrait, QueueTrait, RequestTypeTrait, UserSessionTrait, ValidationTrait;
 
     protected $dispatchesEvents = [
         'retrieved' => EventRetrievedCallback::class,
