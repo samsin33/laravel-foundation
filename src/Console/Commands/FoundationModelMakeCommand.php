@@ -48,4 +48,15 @@ class FoundationModelMakeCommand extends GeneratorCommand
     {
         return __DIR__.'/../stubs/foundation-model.stub';
     }
+
+    /**
+     * Get the default namespace for the class.
+     *
+     * @param  string  $rootNamespace
+     * @return string
+     */
+    protected function getDefaultNamespace($rootNamespace): string
+    {
+        return is_dir(app_path('Models')) ? $rootNamespace.'\\Models' : $rootNamespace;
+    }
 }

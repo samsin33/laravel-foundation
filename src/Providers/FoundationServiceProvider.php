@@ -3,6 +3,7 @@
 namespace Samsin33\Foundation\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Samsin33\Foundation\Console\Commands\FoundationModelMakeCommand;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,20 @@ class FoundationServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->registerCommands();
+    }
+
+    /**
+     * Register the Passport Artisan commands.
+     *
+     * @return void
+     */
+    protected function registerCommands(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                FoundationModelMakeCommand::class,
+            ]);
+        }
     }
 }
