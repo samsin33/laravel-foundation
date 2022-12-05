@@ -1,0 +1,60 @@
+{
+    "name": "samsin33/laravel-foundation",
+    "description": "This package provide foundation for laravel to use its features more smoothly.",
+    "keywords": ["laravel", "laravel foundation", "laravel base"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/samsin33/laravel-foundation/issues",
+        "source": "https://github.com/samsin33/laravel-foundation"
+    },
+    "autoload": {
+        "psr-4": {
+            "Samsin33\\Foundation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Samsin33\\Foundation\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Samarth Sinha",
+            "email": "samarthasinha09@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/log": "^9.0",
+        "illuminate/notifications": "^9.0",
+        "illuminate/console": "^9.0",
+        "illuminate/container": "^9.0",
+        "illuminate/contracts": "^9.0",
+        "illuminate/encryption": "^9.0",
+        "illuminate/http": "^9.0",
+        "illuminate/support": "^9.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.3"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Samsin33\\Foundation\\Providers\\FoundationServiceProvider",
+                "Samsin33\\Foundation\\Providers\\FoundationEventServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
