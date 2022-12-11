@@ -47,8 +47,7 @@
         },
         "laravel": {
             "providers": [
-                "Samsin33\\Foundation\\Providers\\FoundationServiceProvider",
-                "Samsin33\\Foundation\\Providers\\FoundationEventServiceProvider"
+                "Samsin33\\Foundation\\Providers\\FoundationServiceProvider"
             ]
         }
     },
