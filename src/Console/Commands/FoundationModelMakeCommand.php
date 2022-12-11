@@ -2,10 +2,9 @@
 
 namespace Samsin33\Foundation\Console\Commands;
 
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Foundation\Console\ModelMakeCommand;
 
-class FoundationModelMakeCommand extends GeneratorCommand
+class FoundationModelMakeCommand extends ModelMakeCommand
 {
     /**
      * The console command name.
@@ -22,17 +21,9 @@ class FoundationModelMakeCommand extends GeneratorCommand
     protected $description = 'Create a new Foundation model class';
 
     /**
-     * The type of class being generated.
-     *
-     * @var string
-     */
-    protected $type = 'Model';
-
-    /**
      * Execute the console command.
      *
      * @return void
-     * @throws FileNotFoundException
      */
     public function handle(): void
     {
@@ -47,16 +38,5 @@ class FoundationModelMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         return __DIR__.'/../stubs/foundation-model.stub';
-    }
-
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace): string
-    {
-        return is_dir(app_path('Models')) ? $rootNamespace.'\\Models' : $rootNamespace;
     }
 }

@@ -28,7 +28,7 @@ class FoundationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Passport Artisan commands.
+     * Register the Foundation Artisan commands.
      *
      * @return void
      */
