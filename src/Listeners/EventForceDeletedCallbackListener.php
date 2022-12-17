@@ -14,6 +14,6 @@ class EventForceDeletedCallbackListener
      */
     public function handle(EventForceDeletedCallback $event): mixed
     {
-        return $event->object->createdEvent();
+        return $event->object->forceDeletedEvent();
     }
 }

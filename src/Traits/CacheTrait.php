@@ -26,7 +26,7 @@ trait CacheTrait
      * @param string $key
      * @return string
      */
-    public static function getCacheKey(string $key): string
+    protected static function getCacheKey(string $key): string
     {
         return strtolower(Str::of(Str::after(get_called_class(), 'App\\'))->replace('\\', '_')->replace('/', '_'))."_$key";
     }
@@ -41,7 +41,7 @@ trait CacheTrait
         if (!Cache::get($key)) {
             $object = get_called_class()::select(get_called_class()::$cache_fields)->where(get_called_class()::$cache_conditions[$k])
                 ->get();
-            return self::setCache($object, $k);
+            self::setCache($object, $k);
         }
         return Cache::get($key);
     }

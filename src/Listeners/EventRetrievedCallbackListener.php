@@ -14,6 +14,6 @@ class EventRetrievedCallbackListener
      */
     public function handle(EventRetrievedCallback $event): mixed
     {
-        return $event->object->createdEvent();
+        return $event->object->retrievedEvent();
     }
 }

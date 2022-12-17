@@ -14,6 +14,6 @@ class EventTrashedCallbackListener
      */
     public function handle(EventTrashedCallback $event): mixed
     {
-        return $event->object->createdEvent();
+        return $event->object->trashedEvent();
     }
 }

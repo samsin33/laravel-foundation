@@ -2,12 +2,16 @@
 
 namespace Samsin33\Foundation\Traits;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Samsin33\Foundation\Jobs\ProcessQueue;
 
 trait QueueTrait
 {
-    protected $queue_user = null;
+    /**
+     * @var Authenticatable|null
+     */
+    protected ?Authenticatable $queue_user = null;
 
     /**
      * @param string $queue_name
@@ -26,7 +30,7 @@ trait QueueTrait
      * @param array $data
      * @return PendingDispatch
      */
-    public function dispatchQueue(string $queue_name, array $data): PendingDispatch
+    public function dispatchQueue(string $queue_name, array $data = []): PendingDispatch
     {
         return ProcessQueue::dispatch($queue_name, $this, $data, self::currentUser());
     }

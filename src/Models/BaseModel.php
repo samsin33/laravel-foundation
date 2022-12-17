@@ -51,11 +51,7 @@ abstract class BaseModel extends Model
     ];
 
     //---------------------- Events ---------------------------------
-
-    /**
-     * @return bool|$this
-     */
-    public function savingEvent(): bool|static
+    public function savingEvent()
     {
         if (!$this->getSkipValidation()) {
             if (!$this->validateObject()) {

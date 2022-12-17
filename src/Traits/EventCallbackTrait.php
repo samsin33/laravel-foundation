@@ -4,7 +4,7 @@ namespace Samsin33\Foundation\Traits;
 
 trait EventCallbackTrait
 {
-    // stub restored event callback function
+    // stub retrieved event callback function
     public function retrievedEvent()
     {
         return $this;
@@ -58,13 +58,13 @@ trait EventCallbackTrait
         return $this;
     }
 
-    // stub restored event callback function
+    // stub trashed event callback function
     public function trashedEvent()
     {
         return $this;
     }
 
-    // stub restored event callback function
+    // stub forceDeleted event callback function
     public function forceDeletedEvent()
     {
         return $this;
@@ -82,7 +82,7 @@ trait EventCallbackTrait
         return $this;
     }
 
-    // stub restoring event callback function
+    // stub replicating event callback function
     public function replicatingEvent()
     {
         return $this;

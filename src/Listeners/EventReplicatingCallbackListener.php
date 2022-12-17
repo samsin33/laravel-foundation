@@ -14,6 +14,6 @@ class EventReplicatingCallbackListener
      */
     public function handle(EventReplicatingCallback $event): mixed
     {
-        return $event->object->createdEvent();
+        return $event->object->replicatingEvent();
     }
 }

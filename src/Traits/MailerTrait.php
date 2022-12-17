@@ -58,7 +58,6 @@ trait MailerTrait
                 $this->resetEmailFromUser();
             }
         } catch (Exception $exception) {
-            $this->notifyMsg("Email Exception: ".$exception->getMessage());
             return false;
         }
         return $this;
@@ -67,10 +66,12 @@ trait MailerTrait
     /**
      * @param mixed $exception
      * @param string $exception_view
+     * @param string $subject
      * @return void
      */
-    public function sendExceptionEmail(mixed $exception, string $exception_view = 'exception'): void
+    public function sendExceptionEmail(mixed $exception, string $exception_view, string $subject = ''): void
     {
-        $this->sendMail(config('mail.exception_email'), $exception_view, 'Error in '.config('app.name').' Application', $exception);
+        $subject = empty($subject) ? 'Error in '.config('app.name').' Application' : $subject;
+        $this->sendMail(config('mail.exception_email'), $exception_view, $subject, $exception);
     }
 }

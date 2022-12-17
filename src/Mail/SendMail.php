@@ -28,7 +28,7 @@ class SendMail extends Mailable implements ShouldQueue
         $this->email_view = $email_view;
         $this->from_user = $from_user;
         $this->data['object'] = $object;
-        $this->data['data'] = $data;
+        $this->data['other_data'] = $data;
         $this->subject = $email_subject;
         $this->attach = $attach;
         $this->replyTo = $reply_to;
