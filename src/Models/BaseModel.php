@@ -23,7 +23,6 @@ use Samsin33\Foundation\Traits\DateTrait;
 use Samsin33\Foundation\Traits\EventCallbackTrait;
 use Samsin33\Foundation\Traits\GuzzleHttpTrait;
 use Samsin33\Foundation\Traits\MailerTrait;
-use Samsin33\Foundation\Traits\NotificationTrait;
 use Samsin33\Foundation\Traits\QueueTrait;
 use Samsin33\Foundation\Traits\RequestTypeTrait;
 use Samsin33\Foundation\Traits\UserSessionTrait;
@@ -31,7 +30,7 @@ use Samsin33\Foundation\Traits\ValidationTrait;
 
 abstract class BaseModel extends Model
 {
-    use HasFactory, CacheTrait, DateTrait, EventCallbackTrait, GuzzleHttpTrait, MailerTrait, NotificationTrait, QueueTrait, RequestTypeTrait, UserSessionTrait, ValidationTrait;
+    use HasFactory, CacheTrait, DateTrait, EventCallbackTrait, GuzzleHttpTrait, MailerTrait, QueueTrait, RequestTypeTrait, UserSessionTrait, ValidationTrait;
 
     protected $dispatchesEvents = [
         'retrieved' => EventRetrievedCallback::class,

@@ -142,9 +142,9 @@ The CacheTrait contains very useful functions which makes caching very simple.
 Suppose there is a Category model where you want to cache the active and inactive categories.  
 You need to update the $is_cached, $cache_fields, $cache_conditions attributes.
 
-The $is_cached should be set to true if caching needs to be enabled to that model.  
-The $cache_fields contains the attributes which needs to be fetched in getCache().  
-And $cache_conditions must be an array where the key of array is the cache key and its value should also be the array which needs to pass in the where condition if the model as in example given below.
+The **$is_cached** should be set to true if caching needs to be enabled to that model.  
+The **$cache_fields** contains the attributes which needs to be fetched in getCache().  
+And **$cache_conditions** must be an array where the key of array is the cache key and its value should also be the array which needs to pass in the where condition if the model as in example given below.
 ```bash
 use Samsin33\Foundation\Models\BaseModel;
 
@@ -155,15 +155,20 @@ class Category extends BaseModel
   protected static $cache_conditions = ['active' => ['status' => 1], 'inactive' => ['status' => 0]];
 }
 
-// To get or set cache use Category object.
-$category = new Category();
-or
-$category = Category::first();
-$category->getCache('active');
-$category->getCache('inactive');
+// To get cached values
+Category::getCache('active');
+Category::getCache('inactive');
+
+// To set cache values
+Category::setCache('active');
+Category::setAllCache();
+
+// To delete cache values
+Category::destroyCache('inactive');
+Category::destroyAllCache();
 
 // resetAllCache function will reset all cache_conditions data of model.
-$category->resetAllCache();
+Category::resetAllCache();
 ```
 
 ## Mail
