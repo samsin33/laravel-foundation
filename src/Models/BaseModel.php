@@ -30,7 +30,16 @@ use Samsin33\Foundation\Traits\ValidationTrait;
 
 abstract class BaseModel extends Model
 {
-    use HasFactory, CacheTrait, DateTrait, EventCallbackTrait, GuzzleHttpTrait, MailerTrait, QueueTrait, RequestTypeTrait, UserSessionTrait, ValidationTrait;
+    use HasFactory;
+    use CacheTrait;
+    use DateTrait;
+    use EventCallbackTrait;
+    use GuzzleHttpTrait;
+    use MailerTrait;
+    use QueueTrait;
+    use RequestTypeTrait;
+    use UserSessionTrait;
+    use ValidationTrait;
 
     protected $dispatchesEvents = [
         'retrieved' => EventRetrievedCallback::class,
@@ -43,6 +52,7 @@ abstract class BaseModel extends Model
         'deleting' => EventDeletingCallback::class,
         'deleted' => EventDeletedCallback::class,
         'trashed' => EventTrashedCallback::class,
+        'forceDeleting' => EventForceDeletingCallback::class,
         'forceDeleted' => EventForceDeletedCallback::class,
         'restoring' => EventRestoringCallback::class,
         'restored' => EventRestoredCallback::class,
@@ -50,7 +60,10 @@ abstract class BaseModel extends Model
     ];
 
     //---------------------- Events ---------------------------------
-    public function savingEvent()
+    /**
+     * @return bool|$this
+     */
+    public function savingEvent(): bool|static
     {
         if (!$this->getSkipValidation()) {
             if (!$this->validateObject()) {

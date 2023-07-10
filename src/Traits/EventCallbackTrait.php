@@ -65,6 +65,12 @@ trait EventCallbackTrait
     }
 
     // stub forceDeleted event callback function
+    public function forceDeletingEvent()
+    {
+        return $this;
+    }
+
+    // stub forceDeleted event callback function
     public function forceDeletedEvent()
     {
         return $this;
