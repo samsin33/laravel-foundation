@@ -1,7 +1,7 @@
 
 ## Introduction
 
-Foundation package for laravel version 9. This package provide foundation for laravel to use its features more smoothly.
+Foundation package for laravel version 9 and 10. This package provide foundation for laravel to use its features more smoothly.
 
 ## Installation
 Just install samsin33/laravel-foundation package with composer.
