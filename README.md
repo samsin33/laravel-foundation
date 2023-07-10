@@ -47,8 +47,7 @@ class Post extends BaseModel
         return $arr;
     }
 
-    protected function getValidationMessages()
-    }: array
+    protected function getValidationMessages(): array
     {
         return [
           'title.required' => 'A title is required',
@@ -132,7 +131,8 @@ class Post extends BaseModel
     {
         // $data will have $addition_data values
         Comment::where('post_id', $this->id)->delete();
-        // To access the user details at the time post delete() is called use $this->queue_user attribute.
+        // To access the current user details at the time post delete() is called use $this->queue_user attribute.
+        $user = $this->queue_user;
     }
 }
 ```
