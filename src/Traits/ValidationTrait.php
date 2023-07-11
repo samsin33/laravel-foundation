@@ -102,9 +102,9 @@ trait ValidationTrait
         return $this->skip_validations;
     }
 
-    public function errors(): MessageBag
+    public function errors(array $arr = []): MessageBag
     {
-        return $this->errors ?? new MessageBag();
+        return $this->errors = $this->errors != null ? $this->errors : new MessageBag($arr);
     }
 
     /**
@@ -113,19 +113,20 @@ trait ValidationTrait
      */
     public function showErrors(string $return_type = null): array
     {
-        if (!empty($return_type) && empty($this->errors())) {
-            $this->addError([is_string($return_type) ? $return_type : 'Something went wrong.']);
-        } else {
-            return ['Something went wrong.'];
+        if (empty($this->errors())) {
+            $this->addError(new MessageBag(['error' => [
+                    $return_type != null && is_string($return_type) ? $return_type : 'Something went wrong.'
+                ]
+            ]));
         }
         return $this->errors()->toArray();
     }
 
     /**
-     * @param array $messages
+     * @param MessageBag $messages
      * @return void
      */
-    public function addError(array $messages): void
+    public function addError(MessageBag $messages): void
     {
         $this->errors()->merge($messages);
     }
@@ -139,7 +140,7 @@ trait ValidationTrait
      **/
     public function addErrors(BaseModel $object): mixed
     {
-        $this->addError($object->errors() ? $object->errors()->toArray() : ['error' => 'Something went wrong.']);
+        $this->addError($object->errors(['error' => ['Something went wrong.']]));
         return $this;
     }
 
