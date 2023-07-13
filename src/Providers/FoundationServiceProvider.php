@@ -31,6 +31,8 @@ use Samsin33\Foundation\Listeners\EventRetrievedCallbackListener;
 use Samsin33\Foundation\Listeners\EventSavedCallbackListener;
 use Samsin33\Foundation\Listeners\EventSavingCallbackListener;
 use Samsin33\Foundation\Listeners\EventTrashedCallbackListener;
+use Samsin33\Foundation\Models\BaseModel;
+use Samsin33\Foundation\Observers\BaseModelObserver;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -98,6 +100,7 @@ class FoundationServiceProvider extends ServiceProvider
     {
         $this->registerCommands();
         $this->registerEvents();
+        BaseModel::observe(BaseModelObserver::class);
     }
 
     /**

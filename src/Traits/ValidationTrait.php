@@ -102,6 +102,10 @@ trait ValidationTrait
         return $this->skip_validations;
     }
 
+    /**
+     * @param array $arr
+     * @return MessageBag
+     */
     public function errors(array $arr = []): MessageBag
     {
         return $this->errors = $this->errors != null ? $this->errors : new MessageBag($arr);
@@ -115,7 +119,7 @@ trait ValidationTrait
     {
         if (empty($this->errors())) {
             $this->addError(new MessageBag(['error' => [
-                    $return_type != null && is_string($return_type) ? $return_type : 'Something went wrong.'
+                    $return_type != null ? $return_type : 'Something went wrong.'
                 ]
             ]));
         }
@@ -135,13 +139,11 @@ trait ValidationTrait
      * Function to add other model object errors to this model object
      *
      * @param BaseModel $object
-     * @return mixed
-     *
+     * @return void
      **/
-    public function addErrors(BaseModel $object): mixed
+    public function addErrors(BaseModel $object): void
     {
         $this->addError($object->errors(['error' => ['Something went wrong.']]));
-        return $this;
     }
 
     /**
