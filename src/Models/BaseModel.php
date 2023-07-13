@@ -9,6 +9,7 @@ use Samsin33\Foundation\Events\EventCreatingCallback;
 use Samsin33\Foundation\Events\EventDeletedCallback;
 use Samsin33\Foundation\Events\EventDeletingCallback;
 use Samsin33\Foundation\Events\EventForceDeletedCallback;
+use Samsin33\Foundation\Events\EventForceDeletingCallback;
 use Samsin33\Foundation\Events\EventReplicatingCallback;
 use Samsin33\Foundation\Events\EventRestoredCallback;
 use Samsin33\Foundation\Events\EventRestoringCallback;
@@ -23,6 +24,7 @@ use Samsin33\Foundation\Traits\DateTrait;
 use Samsin33\Foundation\Traits\EventCallbackTrait;
 use Samsin33\Foundation\Traits\GuzzleHttpTrait;
 use Samsin33\Foundation\Traits\MailerTrait;
+use Samsin33\Foundation\Traits\ObserverTrait;
 use Samsin33\Foundation\Traits\QueueTrait;
 use Samsin33\Foundation\Traits\RequestTypeTrait;
 use Samsin33\Foundation\Traits\UserSessionTrait;
@@ -34,6 +36,7 @@ abstract class BaseModel extends Model
     use CacheTrait;
     use DateTrait;
     use EventCallbackTrait;
+    use ObserverTrait;
     use GuzzleHttpTrait;
     use MailerTrait;
     use QueueTrait;
@@ -61,9 +64,9 @@ abstract class BaseModel extends Model
 
     //---------------------- Events ---------------------------------
     /**
-     * @return bool|$this
+     * @return mixed
      */
-    public function savingEvent(): bool|static
+    public function savingEvent(): mixed
     {
         if (!$this->getSkipValidation()) {
             if (!$this->validateObject()) {

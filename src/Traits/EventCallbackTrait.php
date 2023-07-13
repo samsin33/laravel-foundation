@@ -4,92 +4,138 @@ namespace Samsin33\Foundation\Traits;
 
 trait EventCallbackTrait
 {
-    // stub retrieved event callback function
-    public function retrievedEvent()
+    /**
+     * stub retrieved event callback function
+     * @return mixed
+     */
+    public function retrievedEvent(): mixed
     {
         return $this;
     }
 
-    // stub creating event callback function
-    public function creatingEvent()
+
+    /**
+     * stub creating event callback function
+     * @return mixed
+     */
+    public function creatingEvent(): mixed
     {
         return $this;
     }
 
-    // stub created event callback function
-    public function createdEvent()
+    /**
+     * stub created event callback function
+     * @return mixed
+     */
+    public function createdEvent(): mixed
     {
         return $this;
     }
 
-    // stub updating event callback function
-    public function updatingEvent()
+    /**
+     * stub updating event callback function
+     * @return mixed
+     */
+    public function updatingEvent(): mixed
     {
         return $this;
     }
 
-    // stub updated event callback function
-    public function updatedEvent()
+    /**
+     * stub updated event callback function
+     * @return mixed
+     */
+    public function updatedEvent(): mixed
     {
         return $this;
     }
 
-    // stub saving event callback function
-    public function savingEvent()
+    /**
+     * stub saving event callback function
+     * @return mixed
+     */
+    public function savingEvent(): mixed
     {
         return $this;
     }
 
-    // stub saved event callback function
-    public function savedEvent()
+    /**
+     * stub saved event callback function
+     * @return mixed
+     */
+    public function savedEvent(): mixed
     {
         return $this;
     }
 
-    // stub deleting event callback function
-    public function deletingEvent()
+    /**
+     * stub deleting event callback function
+     * @return mixed
+     */
+    public function deletingEvent(): mixed
     {
         return $this;
     }
 
-    // stub deleted event callback function
-    public function deletedEvent()
+    /**
+     * stub deleted event callback function
+     * @return mixed
+     */
+    public function deletedEvent(): mixed
     {
         return $this;
     }
 
-    // stub trashed event callback function
-    public function trashedEvent()
+    /**
+     * stub trashed event callback function
+     * @return mixed
+     */
+    public function trashedEvent(): mixed
     {
         return $this;
     }
 
-    // stub forceDeleted event callback function
-    public function forceDeletingEvent()
+    /**
+     * stub forceDeleting event callback function
+     * @return mixed
+     */
+    public function forceDeletingEvent(): mixed
     {
         return $this;
     }
 
-    // stub forceDeleted event callback function
-    public function forceDeletedEvent()
+    /**
+     * stub forceDeleted event callback function
+     * @return mixed
+     */
+    public function forceDeletedEvent(): mixed
     {
         return $this;
     }
 
-    // stub restoring event callback function
-    public function restoringEvent()
+    /**
+     * stub restoring event callback function
+     * @return mixed
+     */
+    public function restoringEvent(): mixed
     {
         return $this;
     }
 
-    // stub restored event callback function
-    public function restoredEvent()
+    /**
+     * stub restored event callback function
+     * @return mixed
+     */
+    public function restoredEvent(): mixed
     {
         return $this;
     }
 
-    // stub replicating event callback function
-    public function replicatingEvent()
+    /**
+     * stub replicating event callback function
+     * @return mixed
+     */
+    public function replicatingEvent(): mixed
     {
         return $this;
     }
