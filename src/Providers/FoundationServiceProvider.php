@@ -31,6 +31,8 @@ use Samsin33\Foundation\Listeners\EventRetrievedCallbackListener;
 use Samsin33\Foundation\Listeners\EventSavedCallbackListener;
 use Samsin33\Foundation\Listeners\EventSavingCallbackListener;
 use Samsin33\Foundation\Listeners\EventTrashedCallbackListener;
+use Samsin33\Foundation\Listeners\EventUpdatedCallbackListener;
+use Samsin33\Foundation\Listeners\EventUpdatingCallbackListener;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -45,10 +47,10 @@ class FoundationServiceProvider extends ServiceProvider
             EventCreatedCallbackListener::class, 'handle'
         ],
         EventUpdatingCallback::class => [
-            EventUpdatingCallback::class, 'handle'
+            EventUpdatingCallbackListener::class, 'handle'
         ],
         EventUpdatedCallback::class => [
-            EventUpdatedCallback::class, 'handle'
+            EventUpdatedCallbackListener::class, 'handle'
         ],
         EventSavingCallback::class => [
             EventSavingCallbackListener::class, 'handle'
